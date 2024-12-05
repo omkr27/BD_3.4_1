@@ -65,7 +65,7 @@ app.get('/cart/delete', (req, res) => {
 //Endpoint 4
 app.get('/cart', (req, res) => {
   cartItems = cart;
-  res.json({ cartItems: cartItem });
+  res.json({ cartItems: cartItems });
 });
 
 //function
