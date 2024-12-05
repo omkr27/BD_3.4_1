@@ -80,7 +80,7 @@ function calcQuantityOfItems(cart) {
 //Endpoint 5
 app.get('/cart/total-quantity', (req, res) => {
   let cartItems = calcQuantityOfItems(cart);
-  res.json({ totalQuantity: cartItems });
+  res.json({ cartItems: cartItems });
 });
 
 //function
@@ -95,7 +95,7 @@ function calcPriceofItems(cart) {
 //Endpoint 6
 app.get('/cart/total-price', (req, res) => {
   let cartItems = calcPriceofItems(cart);
-  res.json({ totalPrice: cartItems });
+  res.json({ cartItems: cartItems });
 });
 
 app.listen(port, () => {
