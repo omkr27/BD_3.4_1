@@ -23,11 +23,11 @@ function addItem(cart, productId, name, price, quantity) {
 }
 
 //Endpoint 1
-app.get('/cart/add/:productId/:name/:price/:quantity', (req, res) => {
-  let productId = parseInt(req.params.productId);
-  let name = req.params.name;
-  let price = parseInt(req.params.price);
-  let quantity = parseInt(req.params.quantity);
+app.get('/cart/add', (req, res) => {
+  let productId = parseInt(req.query.productId);
+  let name = req.query.name;
+  let price = parseInt(req.query.price);
+  let quantity = parseInt(req.query.quantity);
   let cartItems = addItem(cart, productId, name, price, quantity);
   res.json({ cartItems: cartItems });
 });
@@ -43,9 +43,9 @@ function editQuantityById(cart, productId, quantity) {
 }
 
 //Endpoint 2
-app.get('/cart/edit/:productId/:quantity', (req, res) => {
-  let productId = parseInt(req.params.productId);
-  let quantity = parseInt(req.params.quantity);
+app.get('/cart/edit', (req, res) => {
+  let productId = parseInt(req.query.productId);
+  let quantity = parseInt(req.query.quantity);
   let cartItems = editQuantityById(cart, productId, quantity);
   res.json({ cartItems: cartItems });
 });
@@ -56,8 +56,8 @@ function deleteItemById(item, productId) {
 }
 
 //Endpoint 3
-app.get('/cart/delete/:productId', (req, res) => {
-  let productId = parseInt(req.params.productId);
+app.get('/cart/delete, (req, res) => {
+  let productId = parseInt(req.query.productId);
   let cartItems = cart.filter((item) => deleteItemById(item, productId));
   res.json({ cartItems: cartItems });
 });
