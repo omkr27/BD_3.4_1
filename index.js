@@ -59,8 +59,8 @@ function deleteItemById(item, productId) {
 //Endpoint 3
 app.get('/cart/delete', (req, res) => {
   let productId = parseInt(req.query.productId);
-  let cartItems = cart.filter((item) => deleteItemById(item, productId));
-  res.json({ cartItems: cartItems });
+  let cart = cart.filter((item) => deleteItemById(item, productId));
+  res.json({ cartItems: cart });
 });
 
 function viewCart(cart) {
